@@ -172,297 +172,224 @@ nav {
         opacity: 1;
     }
 } 
-/* Importa a fonte personalizada do Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Playwrite+DK+Uloopet:wght@100..400&display=swap');
 
-/* Reset geral + fonte */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Playwrite DK Uloopet", cursive;
-    font-optical-sizing: auto;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Playwrite DK Uloopet", cursive;
+  font-optical-sizing: auto;
 }
 
 body {
-    background: black; /* Fundo padrão, depois sobrescreve nas medias */
+  position: relative;
+  overflow-x: hidden;
 }
 
-/* Menu */
+/* Navigation */
 nav {
-    display: flex;
-    padding: 2% 6%;
-    position: relative;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  padding: 2% 6%;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 3;
 }
 
-/* Logo */
 .logo {
-    width: 15%;
+  width: 15%;
 }
 
-/* Lista */
 .list {
-    flex: 1;
-    text-align: right;
+  flex: 1;
+  text-align: right;
 }
 
 .list ul li {
-    position: relative;
-    list-style: none;
-    padding: 8px 12px;
-    display: inline-block;
-    transition: 0.5s ease;
+  list-style: none;
+  padding: 8px 12px;
+  display: inline-block;
+  transition: 0.5s ease;
 }
 
 .list ul li a {
-    color: #333;
-    text-decoration: none;
-    transition: 0.5s;
+  color: #333;
+  text-decoration: none;
+  transition: 0.5s;
 }
 
 .list ul:hover li {
-    filter: blur(5px);
+  filter: blur(5px);
 }
 
 .list ul li:hover {
-    filter: blur(0);
-    transform: scale(1.1);
-    background: linear-gradient(90deg, #16BFFD, #CB6066);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  filter: blur(0);
+  transform: scale(1.1);
+  background: linear-gradient(90deg, #16BFFD, #CB6066);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .active {
-    color: #ff0544 !important;
+  color: #ff0544 !important;
 }
 
-/* Texto */
+/* Circle background */
+.circle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(#f701b2, #05fff2);
+  clip-path: circle(600px at right 800px);
+  z-index: 0;
+}
+
+/* Main text */
 .text {
-    max-width: 600px;
-    padding: 20px 60px;
+  max-width: 600px;
+  padding: 20px 60px;
+  z-index: 2;
+  position: relative;
 }
 
 .text h2 {
-    font-size: 50px;
-    animation: slideBottom 1s ease forwards;
-    animation-delay: .7s;
+  font-size: 50px;
+  animation: slideBottom 1s ease forwards;
+  animation-delay: .7s;
 }
 
 .text span {
-    color: #05fff2;
-    font-weight: 900;
+  color: #05fff2;
+  font-weight: 900;
 }
 
 .text p {
-    padding: 15px 0;
+  padding: 15px 0;
 }
 
 .btn {
-    padding: 15px 35px;
-    background: linear-gradient(#f701b2, #05fff2);
-    color: #fff;
-    border: 0;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: 0.5s;
+  padding: 15px 35px;
+  background: linear-gradient(#f701b2, #05fff2);
+  color: #fff;
+  border: 0;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.5s;
+  z-index: 2;
+  position: relative;
 }
 
 .btn:hover {
-    letter-spacing: 5px;
+  letter-spacing: 5px;
 }
 
-/* Imagem */
+/* Decorative image */
 .img {
-    position: absolute;
-    right: 0;
-    top: 100px;
-    z-index: 2;
-    cursor: pointer;
-    transition: 0.5s;
-    width: 22%;
-    margin-right: 10%;
-    margin-top: 1%;
-    animation: zoomIn 1s ease forwards, floatImage 4s ease-in-out infinite;
-    animation-delay: 2s, 3s;
+  position: absolute;
+  right: 0;
+  top: 100px;
+  z-index: 2;
+  cursor: pointer;
+  transition: 0.5s;
+  width: 22%;
+  margin-right: 10%;
+  margin-top: 1%;
+  animation: zoomIn 1s ease forwards, floatImage 4s ease-in-out infinite;
+  animation-delay: 2s, 3s;
 }
 
-/* Círculo */
-.circle {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 600px;
-    height: 600px;
-    background: linear-gradient(#f701b2, #05fff2);
-    clip-path: circle(600px at right 800px);
-    z-index: 0;
-}
-
-/* Animações */
+/* Animations */
 @keyframes slideBottom {
-    0% {
-        transform: translateY(-100px);
-        opacity: 0;
-    }
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
+  0% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 @keyframes floatImage {
-    0% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-24px);
-    }
-    100% {
-        transform: translateY(0);
-    }
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-24px); }
+  100% { transform: translateY(0); }
 }
 
 @keyframes zoomIn {
-    0% {
-        transform: scale(0);
-        opacity: 0;
-    }
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
-/* === MEDIA QUERIES RESPONSIVAS === */
+/* ===================== MOBILE ===================== */
+@media (max-width: 600px) {
+  nav {
+    flex-direction: column;
+    padding: 10px 5%;
+  }
 
-/* Mínimo 350px (mobile) */
-@media screen and (min-width: 350px) {
-    body {
-        background: black; /* Mantém cor */
-    }
-    
-    .container {
-        gap: 5px;
-        display: flex;
-        flex-wrap: wrap-reverse;
-        justify-content: center;   
-    }
-    
-    .titulo {
-        text-align: center;
-        color: aliceblue;
-    }
-    
-    .img {
-        position: static;
-        width: 370px;
-        margin: 20px auto;
-        display: block;
-        animation: none;
-    }
+  .logo {
+    width: 50%;
+    margin-bottom: 15px;
+    align-self: flex-start;
+  }
 
-    .circle {
-        position: absolute;
-        width: 150px;
-        height: 150px;
-        top: 10px;
-        right: 10px;
-        clip-path: circle(50% at center);
-        opacity: 0.5;
-    }
+  .list {
+    text-align: center;
+    flex: none;
+  }
 
-    img {
-        border-radius: 10%;
-        width: 370px;
-    }
-}
+  .list ul li {
+    display: block;
+    padding: 12px 0;
+  }
 
-/* Mínimo 808px (tablet) */
-@media screen and (min-width: 808px) {
-    body {
-        background: red; /* Mantém cor */
-    }
-    
-    .container {
-        gap: 10px;
-        display: flex;
-        flex-wrap: wrap-reverse;
-        justify-content: center;   
-    }
-    
-    .titulo {
-        text-align: center;
-        color: aliceblue;
-    }
-    
-    .img {
-        position: absolute;
-        width: auto;
-        right: 0;
-        top: 100px;
-        animation: zoomIn 1s ease forwards, floatImage 4s ease-in-out infinite;
-        animation-delay: 2s, 3s;
-    }
+  /* Centraliza a bola mais abaixo */
+  .circle {
+    clip-path: circle(300px at center 500px);
+    z-index: 0;
+  }
 
-    .circle {
-        width: 300px;
-        height: 300px;
-        clip-path: circle(50% at center);
-        opacity: 0.5;
-    }
+  /* Centraliza o texto dentro da bola */
+  .text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 2;
+    padding: 0 20px;
+  }
 
-    img {
-        border-radius: 10%;
-    }
-}
+  .text h2 {
+    font-size: 26px;
+  }
 
-/* Mínimo 1024px (desktop) */
-@media screen and (min-width: 1024px) {
-    body {
-        background: black; /* Mantém cor */
-    }
-    
-    .container {
-        gap: 70px;
-        display: flex;
-        flex-wrap: wrap-reverse;
-        justify-content: flex-start;
-    }
+  /* Botão acima da bola */
+  .btn {
+    position: absolute;
+    top: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    text-align: center;
+    padding: 14px 0;
+    font-size: 16px;
+    z-index: 3;
+  }
 
-    .box {
-        width: 20rem;
-        height: 20rem;
-        margin: 0 4em;
-    }
-    
-    .titulo {
-        text-align: center;
-        color: aliceblue;
-    }
-    
-    .img {
-        width: 500px;
-        padding: 0 1em;
-        position: absolute;
-        right: 0;
-        top: 100px;
-        animation: zoomIn 1s ease forwards, floatImage 4s ease-in-out infinite;
-        animation-delay: 2s, 3s;
-    }
-
-    .circle {
-        width: 600px;
-        height: 600px;
-        clip-path: circle(600px at right 800px);
-        opacity: 1;
-    }
-
-    img {
-        border-radius: 10%;
-        width: 500px;
-        padding: 0 1em;
-    }
+  /* Oculta imagem decorativa no mobile */
+  .img {
+    display: none;
+  }
 }
