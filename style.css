@@ -172,8 +172,10 @@ nav {
         opacity: 1;
     }
 } 
+/* Importa a fonte personalizada do Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Playwrite+DK+Uloopet:wght@100..400&display=swap');
 
+/* Reset geral + fonte */
 * {
     margin: 0;
     padding: 0;
@@ -182,23 +184,32 @@ nav {
     font-optical-sizing: auto;
 }
 
+body {
+    background: black; /* Fundo padrão, depois sobrescreve nas medias */
+}
+
+/* Menu */
 nav {
     display: flex;
     padding: 2% 6%;
+    position: relative;
     justify-content: space-between;
     align-items: center;
 }
 
+/* Logo */
 .logo {
     width: 15%;
 }
 
+/* Lista */
 .list {
     flex: 1;
     text-align: right;
 }
 
 .list ul li {
+    position: relative;
     list-style: none;
     padding: 8px 12px;
     display: inline-block;
@@ -228,18 +239,10 @@ nav {
     color: #ff0544 !important;
 }
 
-.container {
-    position: relative;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
+/* Texto */
 .text {
     max-width: 600px;
-    position: relative;
-    z-index: 2;
+    padding: 20px 60px;
 }
 
 .text h2 {
@@ -271,29 +274,34 @@ nav {
     letter-spacing: 5px;
 }
 
+/* Imagem */
 .img {
     position: absolute;
     right: 0;
-    bottom: 0;
-    width: 250px;
-    z-index: 1;
+    top: 100px;
+    z-index: 2;
     cursor: pointer;
     transition: 0.5s;
+    width: 22%;
+    margin-right: 10%;
+    margin-top: 1%;
     animation: zoomIn 1s ease forwards, floatImage 4s ease-in-out infinite;
     animation-delay: 2s, 3s;
 }
 
+/* Círculo */
 .circle {
     position: absolute;
     top: 0;
-    right: -100px;
-    width: 400px;
-    height: 400px;
+    left: 0;
+    width: 600px;
+    height: 600px;
     background: linear-gradient(#f701b2, #05fff2);
-    clip-path: circle(50%);
+    clip-path: circle(600px at right 800px);
     z-index: 0;
 }
 
+/* Animações */
 @keyframes slideBottom {
     0% {
         transform: translateY(-100px);
@@ -328,73 +336,133 @@ nav {
     }
 }
 
-@media (max-width: 600px) {
-    nav {
-        flex-direction: column;
-        align-items: center;
-        padding: 10px 5%;
-    }
+/* === MEDIA QUERIES RESPONSIVAS === */
 
-    .logo {
-        width: 60%;
-        margin-bottom: 10px;
+/* Mínimo 350px (mobile) */
+@media screen and (min-width: 350px) {
+    body {
+        background: black; /* Mantém cor */
     }
-
-    .list {
-        text-align: center;
-        width: 100%;
-        margin-top: 10px;
-    }
-
-    .list ul {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        padding: 0;
-    }
-
-    .list ul li {
-        display: block;
-        padding: 10px 0;
-    }
-
+    
     .container {
-        padding: 10px;
-        position: relative; /* GARANTE que os absolutes funcionem */
+        gap: 5px;
+        display: flex;
+        flex-wrap: wrap-reverse;
+        justify-content: center;   
     }
-
-    .text {
-        max-width: 100%;
+    
+    .titulo {
         text-align: center;
-        z-index: 2;
+        color: aliceblue;
     }
-
-    .text h2 {
-        font-size: 26px;
-        line-height: 1.3;
-    }
-
-    .btn {
-        width: 100%;
-        padding: 15px 0;
-        font-size: 16px;
-        margin-top: 10px;
-    }
-
+    
     .img {
         position: static;
-        width: 80%;
-        margin: 20px auto 0;
+        width: 370px;
+        margin: 20px auto;
         display: block;
         animation: none;
     }
 
     .circle {
-        position: absolute; /* ESSENCIAL! */
-        top: 10px; /* Ajusta conforme quiser */
-        right: 10px; 
+        position: absolute;
+        width: 150px;
         height: 150px;
+        top: 10px;
+        right: 10px;
         clip-path: circle(50% at center);
-        z-index: 0;
+        opacity: 0.5;
+    }
+
+    img {
+        border-radius: 10%;
+        width: 370px;
+    }
+}
+
+/* Mínimo 808px (tablet) */
+@media screen and (min-width: 808px) {
+    body {
+        background: red; /* Mantém cor */
+    }
+    
+    .container {
+        gap: 10px;
+        display: flex;
+        flex-wrap: wrap-reverse;
+        justify-content: center;   
+    }
+    
+    .titulo {
+        text-align: center;
+        color: aliceblue;
+    }
+    
+    .img {
+        position: absolute;
+        width: auto;
+        right: 0;
+        top: 100px;
+        animation: zoomIn 1s ease forwards, floatImage 4s ease-in-out infinite;
+        animation-delay: 2s, 3s;
+    }
+
+    .circle {
+        width: 300px;
+        height: 300px;
+        clip-path: circle(50% at center);
+        opacity: 0.5;
+    }
+
+    img {
+        border-radius: 10%;
+    }
+}
+
+/* Mínimo 1024px (desktop) */
+@media screen and (min-width: 1024px) {
+    body {
+        background: black; /* Mantém cor */
+    }
+    
+    .container {
+        gap: 70px;
+        display: flex;
+        flex-wrap: wrap-reverse;
+        justify-content: flex-start;
+    }
+
+    .box {
+        width: 20rem;
+        height: 20rem;
+        margin: 0 4em;
+    }
+    
+    .titulo {
+        text-align: center;
+        color: aliceblue;
+    }
+    
+    .img {
+        width: 500px;
+        padding: 0 1em;
+        position: absolute;
+        right: 0;
+        top: 100px;
+        animation: zoomIn 1s ease forwards, floatImage 4s ease-in-out infinite;
+        animation-delay: 2s, 3s;
+    }
+
+    .circle {
+        width: 600px;
+        height: 600px;
+        clip-path: circle(600px at right 800px);
+        opacity: 1;
+    }
+
+    img {
+        border-radius: 10%;
+        width: 500px;
+        padding: 0 1em;
     }
 }
