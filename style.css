@@ -268,7 +268,7 @@ nav {
 .img {
     position: absolute;
     right: 0;
-    top: 100px;
+    top: 800px;
     z-index: 2;
     cursor: pointer;
     transition: 0.5s;
