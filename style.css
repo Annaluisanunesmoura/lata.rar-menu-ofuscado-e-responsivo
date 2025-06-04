@@ -110,7 +110,7 @@ nav {
 .img {
     position: absolute; /* Posicionamento absoluto */
     right: 0; /* Encostada na direita */
-    top: 200px; /* Distância do topo */
+    top: 100px; /* Distância do topo */
     z-index: 2; /* Sobrepõe outros elementos */
     cursor: pointer; /* Muda cursor */
     transition: 0.5s; /* Transição suave */
@@ -268,7 +268,7 @@ nav {
 .img {
     position: absolute;
     right: 0;
-    top: 200px;
+    top: 100px;
     z-index: 2;
     cursor: pointer;
     transition: 0.5s;
